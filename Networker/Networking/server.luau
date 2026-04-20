@@ -8,7 +8,8 @@ local listeners = {
 }
 
 local function getEvent(eventName: string, unreliable: boolean?)
-	local object = ReplicatedStorage.Events.Remotes:FindFirstChild(eventName) or ReplicatedStorage.Events.Functions:FindFirstChild(eventName)
+	local object = ReplicatedStorage.Events.Remotes:FindFirstChild(eventName)
+		or ReplicatedStorage.Events.Functions:FindFirstChild(eventName)
 
 	if object == nil then
 		if unreliable then
@@ -18,6 +19,7 @@ local function getEvent(eventName: string, unreliable: boolean?)
 		else
 			object = Instance.new("RemoteFunction")
 			object.Parent = ReplicatedStorage.Events.Functions
+			object.Name = eventName
 			return object
 		end
 		object.Parent = ReplicatedStorage.Events.Remotes
@@ -27,13 +29,14 @@ local function getEvent(eventName: string, unreliable: boolean?)
 	return object
 end
 
-function ServerNetwork:On(eventName: string, callback, isReliable: boolean)
+function ServerNetwork:On(eventName: string, callback: (A: any, B: any) -> (), isReliable: boolean)
 	if not listeners.Remotes[eventName] then
-		local newListener: RemoteEvent = getEvent(eventName, isReliable)
+		local newListener = getEvent(eventName, isReliable)
+
 		newListener.OnServerEvent:Connect(function(player: Player, data: any)
 			callback(player, data)
 		end)
-		listeners.Remotes[newListener] = newListener
+		listeners.Remotes[eventName] = newListener
 	end
 end
 
@@ -58,12 +61,16 @@ end
 -- REMOTE FUNCTIONS
 ----------------------------------------]]
 
-function ServerNetwork:Invoke(target: Player, eventName: string, callback: (args: any) -> ())
+function ServerNetwork:OnServerInvoke(eventName: string, callback: (Player, ...any) -> ())
 	if not listeners.Functions[eventName] then
 		local newListener: RemoteFunction = getEvent(eventName, nil)
-		newListener.OnServerInvoke = callback()
-		listeners.Functions[newListener] = newListener
+		newListener.OnServerInvoke = callback
+		listeners.Functions[eventName] = newListener
 	end
+end
+
+function ServerNetwork:InvokeClient(target: Player, eventName: string, ...: any)
+	return getEvent(eventName):InvokeClient(target, ...)
 end
 
 return ServerNetwork
