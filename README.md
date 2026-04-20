@@ -28,8 +28,3 @@ Networker:Send(target, "eventName", data)
 
 * Creates events for you
 * Remote Functions and Remote Events Supported
-
----
-
-```
-```
