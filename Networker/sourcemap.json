@@ -1,0 +1,171 @@
+{
+  "name": "Networker",
+  "className": "DataModel",
+  "filePaths": [
+    "default.project.json"
+  ],
+  "children": [
+    {
+      "name": "ReplicatedStorage",
+      "className": "ReplicatedStorage",
+      "children": [
+        {
+          "name": "Networking",
+          "className": "ModuleScript",
+          "filePaths": [
+            "Networking/init.luau"
+          ],
+          "children": [
+            {
+              "name": "client",
+              "className": "ModuleScript",
+              "filePaths": [
+                "Networking/client.luau"
+              ]
+            },
+            {
+              "name": "server",
+              "className": "ModuleScript",
+              "filePaths": [
+                "Networking/server.luau"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "FormatNumber",
+          "className": "Folder",
+          "children": [
+            {
+              "name": "Main",
+              "className": "ModuleScript",
+              "filePaths": [
+                "FormatNumber/Main/init.lua"
+              ],
+              "children": [
+                {
+                  "name": "DecimalFormatSymbols",
+                  "className": "ModuleScript",
+                  "filePaths": [
+                    "FormatNumber/Main/DecimalFormatSymbols.lua"
+                  ]
+                },
+                {
+                  "name": "IntegerWidth",
+                  "className": "ModuleScript",
+                  "filePaths": [
+                    "FormatNumber/Main/IntegerWidth.lua"
+                  ]
+                },
+                {
+                  "name": "Notation",
+                  "className": "ModuleScript",
+                  "filePaths": [
+                    "FormatNumber/Main/Notation.lua"
+                  ]
+                },
+                {
+                  "name": "Precision",
+                  "className": "ModuleScript",
+                  "filePaths": [
+                    "FormatNumber/Main/Precision.lua"
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "Simple",
+              "className": "ModuleScript",
+              "filePaths": [
+                "FormatNumber/Simple/init.lua"
+              ]
+            },
+            {
+              "name": "_internal",
+              "className": "ModuleScript",
+              "filePaths": [
+                "FormatNumber/_internal/init.lua"
+              ],
+              "children": [
+                {
+                  "name": "class",
+                  "className": "ModuleScript",
+                  "filePaths": [
+                    "FormatNumber/_internal/class.lua"
+                  ]
+                },
+                {
+                  "name": "decimal_conversion",
+                  "className": "ModuleScript",
+                  "filePaths": [
+                    "FormatNumber/_internal/decimal_conversion.lua"
+                  ]
+                },
+                {
+                  "name": "enums",
+                  "className": "ModuleScript",
+                  "filePaths": [
+                    "FormatNumber/_internal/enums.lua"
+                  ]
+                },
+                {
+                  "name": "format",
+                  "className": "ModuleScript",
+                  "filePaths": [
+                    "FormatNumber/_internal/format.lua"
+                  ]
+                },
+                {
+                  "name": "formatter_settings",
+                  "className": "ModuleScript",
+                  "filePaths": [
+                    "FormatNumber/_internal/formatter_settings.lua"
+                  ]
+                },
+                {
+                  "name": "skeleton",
+                  "className": "ModuleScript",
+                  "filePaths": [
+                    "FormatNumber/_internal/skeleton.lua"
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ServerScriptService",
+      "className": "ServerScriptService",
+      "children": [
+        {
+          "name": "Server",
+          "className": "Script",
+          "filePaths": [
+            "src/server/init.server.luau"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "StarterPlayer",
+      "className": "StarterPlayer",
+      "children": [
+        {
+          "name": "StarterPlayerScripts",
+          "className": "StarterPlayerScripts",
+          "children": [
+            {
+              "name": "Client",
+              "className": "LocalScript",
+              "filePaths": [
+                "src/client/init.client.luau"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
