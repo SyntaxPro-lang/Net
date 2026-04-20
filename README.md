@@ -4,9 +4,9 @@ Lightweight Roblox networking module with a clean API and example usage.
 ---
 
 ## 📘 API
-- **:Send(...)** → `FireClient()` / `FireAllClients()`
-- **:On(...)** → `OnServerEvent` / `OnClientEvent`
-- **:Invoke(...)** → *(WIP)*
+- :Send(...) → `FireClient()` / `FireAllClients()`
+- :On(...) → `OnServerEvent` / `OnClientEvent`
+- :Invoke(...) → *(WIP)*
 
 ---
 
